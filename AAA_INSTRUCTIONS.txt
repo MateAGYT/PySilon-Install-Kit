@@ -1,0 +1,15 @@
+1º step: Disable your Windows real-time protection and compile your file via PySilon official repository (https://github.com/mategol/PySilon) (or paste into it if you have it compiled already).
+- Tip: If you can't compile it try installing ONLY Python 3.12.2 or/and replacing "pyinstaller -F ' + ('--noconsole ' if not debug_mode else '') + '--upx-dir "resources/" ' + ('--add-data "resources/libopus-0.x64.dll;." ' if config['FUNCTIONALITY']['mc_live']" to "pyinstaller --copy-metadata imageio -F ' + ('--noconsole ' if not debug_mode else '') + '--upx-dir "resources/" ' + ('--add-data "resources/libopus-0.x64.dll;." ' if config['FUNCTIONALITY']['mc_live']"
+
+2º step: Place your PySilon executable in the 'files' folder.
+
+3º step: Start "Install.bat" and write your executable name without the file extension.
+- Example: If your file is called "roblox-robux.exe" you should type "roblox-robux"
+
+4º step: Wait and your file will be moved to the System directory and persisting tasks will be enabled.
+
+If you encounter any issues with the code, don't be shy to open a Pull Request or a Issue in the GitHub directory.
+
+> If you want to uninstall, just place again your PySilon executable in the 'files' folder and follow the last steps.
+
+Happy testing!
