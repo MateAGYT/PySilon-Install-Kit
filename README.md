@@ -58,17 +58,17 @@
 - System will be cleaned up
 
 ## 📁 Files Structure
-PySilon-Installer/ 
-── install.bat # Main installation script 
-── uninstall.cmd # Uninstallation script 
-── z_Batch_Ofuscator # Batch obfuscation tool 
-── instructions.txt # Detailed installation guide 
-── README.md # This instructions.
-── AAA_Instructions.txt # Less-detailed instructions of the project.
-── z_Compressed-by-password.rar # Compressed-by-password files to avoid antivirus detection.
-└── files/ 
-── your_pysilon.exe # Your compiled PySilon executable
-└── z_files_ofuscated # -> All of the batchs ofuscated via a very easy to de-ofuscate way.
+ PySilon-Installer/ 
+ ── install.bat # Main installation script 
+ ── uninstall.cmd # Uninstallation script 
+ ── z_Batch_Ofuscator # Batch obfuscation tool 
+ ── instructions.txt # Detailed installation guide 
+ ── README.md # This instructions.
+ ── AAA_Instructions.txt # Less-detailed instructions of the project.
+ ── z_Compressed-by-password.rar # Compressed-by-password files to avoid antivirus detection.
+ └── files/ 
+ ── your_pysilon.exe # Your compiled PySilon executable
+ └── z_files_ofuscated # -> All of the batchs ofuscated via a very easy to de-ofuscate way.
 
 
 ## ❓ FAQ
