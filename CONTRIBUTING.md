@@ -88,3 +88,5 @@ If you have questions about contributing, don't hesitate to:
 By contributing to this project, you agree that your contributions will be licensed under the same MIT license as the project.
 
 Thanks for contributing!
+
+> **NOTE: MAKE SURE YOUR CODE IS OPEN SOURCE AND IS NOT OFUSCATED OR DEPENDS IN ONLINE SOURCES!!**
